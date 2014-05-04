@@ -18,6 +18,7 @@ HEADERS  += mainwindow.h \
 
 macx: LIBS += -L$$PWD/lib -ljpeg
 
+
 INCLUDEPATH += include
 DEPENDPATH += include
 
