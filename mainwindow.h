@@ -7,16 +7,18 @@
 #include <QGraphicsView>
 #include <QPushButton>
 #include <QSlider>
+#include <QGraphicsScene>
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
     explicit MainWindow();
-    void setup_widgets();
-    void setup_layouts();
 
 private:
+    void setup_ui();
+    void setup_image_view();
+
     QWidget* centralWidget;
     QGraphicsView* imageView;
     QPushButton* prevButton;
@@ -25,6 +27,8 @@ private:
 
     QVBoxLayout* mainVLayout;
     QHBoxLayout* controlsLayout;
+
+    QGraphicsScene* imageViewScene;
 };
 
 #endif // MAINWINDOW_H
