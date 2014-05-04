@@ -7,6 +7,7 @@ QMAKE_CXXFLAGS += -Wall
 QMAKE_CXXFLAGS += -Werror
 QMAKE_CXXFLAGS += -O0
 QMAKE_CXXFLAGS += -march=native -mtune=native
+QMAKE_CXXFLAGS += -v
 
 SOURCES += main.cpp\
            mainwindow.cpp \
@@ -15,9 +16,12 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
             decodeimage.h \
 
-macx: LIBS += -L"$$PWD/lib/" -ljpeg
+macx: LIBS += -L$$PWD/lib -ljpeg
 
-INCLUDEPATH += "$$PWD/include"
-DEPENDPATH += "$$PWD/include"
+INCLUDEPATH += include
+DEPENDPATH += include
 
-macx: PRE_TARGETDEPS += "$$PWD/lib/libjpeg.a"
+macx: PRE_TARGETDEPS += $$PWD/lib/libjpeg.a
+
+OTHER_FILES += include/*\
+               lib/*
